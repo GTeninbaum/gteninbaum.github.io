@@ -1,0 +1,53 @@
+<! DOCTYPE html>
+
+<head>
+<title>askatticus</title>
+    
+    <link rel="stylesheet" href="export.css"/>
+    
+</head>
+
+<body>
+    <h2><center>What Would Atticus Do?</center></h2>
+    
+    <div id="container"></div>
+    
+    <script src="reader.js" ></script>   
+    <script type="application/javascript">
+      Muscle.default.launch({
+            source: "atticus.json", //filepath to the JSON file
+            target: "container" // id of target container
+        }).then(function(e){
+        //.launch() returns a promise, so you can use then() to build a callback function.
+        //If you want to refer to the HTML Muscle creates, you need to call it from here, to guarantee that the page has rendered.
+
+        var btns = document.getElementsByClassName("random") 
+        btns[0].addEventListener("click", colorize, "passive")
+        
+        function colorize(e){
+           var els = document.getElementsByClassName("picked");
+           var btn = document.getElementsByClassName('random')
+           els[0].style.color = randomColor();   
+           btn[0].style.background=randomColor();
+           
+        }
+        //generate random color string
+        function randomColor(){
+            var r = getRandomInt(255)
+           var g = getRandomInt(255)
+           var b = getRandomInt(255)
+            return "rgb("+r+","+g+","+b+")"
+        }
+       function getRandomInt(max) {
+           return Math.floor(Math.random() * Math.floor(max)).toString();
+       }  
+        })
+      
+              
+    </script>  
+
+</body>
+<footer><div id="textbox">
+  <p class="alignleft">Gabe Teninbaum</p>
+  <p class="alignright"> <a href="http://legaltech.suffolk.edu">Suffolk Law Institute on Legal Innovation & Technology</a> </p>
+</div>Gabe Teninbaum |</footer>
