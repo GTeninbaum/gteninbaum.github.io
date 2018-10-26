@@ -1,46 +1,29 @@
 <! DOCTYPE html>
 
+<html lang="en">
 <head>
-<title>askatticus</title>
-    
-    <link rel="stylesheet" href="export.css"/>
-    
+	<meta charset="UTF-8">
+	<title>Inspirational Quote of the Day</title>
+	<link rel="stylesheet" href="quote.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+	<script src="jquery-1.11.2.min.js" type="text/javascript"></script>
 </head>
-
 <body>
-    <h2><center>What Would Atticus Do?</center></h2>
-    
-    <div id="container"></div>
-    
-    <script src="reader.js" ></script>   
-    <script type="application/javascript">
-      Muscle.default.launch({
-            source: "atticus.json", //filepath to the JSON file
-            target: "container" // id of target container
-        }).then(function(e){
-        //.launch() returns a promise, so you can use then() to build a callback function.
-        //If you want to refer to the HTML Muscle creates, you need to call it from here, to guarantee that the page has rendered.
+	<div id="container">
+		<h2>What Would Atticus Say?</h2>
+			<div id="quoteContainer">
+				<p></p>
+				<p id="quoteGenius"></p>			
+			</div><!--end quoteContainer-->
+			
+			<div id="buttonContainer">
+				<a href="#" id="quoteButton">Go.</a>
+		</div><!--end buttonContainer-->
 
-        var btns = document.getElementsByClassName("random") 
-        btns[0].addEventListener("click", colorize, "passive")
-        
-        function colorize(e){
-           var els = document.getElementsByClassName("picked");
-           var btn = document.getElementsByClassName('random')
-           els[0].style.color = randomColor();   
-           btn[0].style.background=randomColor();
-           
-        }
-        //generate random color string
-        function randomColor(){
-            var r = getRandomInt(255)
-           var g = getRandomInt(255)
-           var b = getRandomInt(255)
-            return "rgb("+r+","+g+","+b+")"
-        }
-       function getRandomInt(max) {
-           return Math.floor(Math.random() * Math.floor(max)).toString();
-       }  
+
+	</div><!--end container-->
+</body>
+</html>
         })
       
               
